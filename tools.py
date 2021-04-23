@@ -81,22 +81,28 @@ class Counter:
 
 
     def results(self):
-        print('\n')
-        print('--------------------------------------------------')
-        print('The number of paragraphs in text is:', self.paragraphs)
-        print('The number of sentences in text is:', self.sentences)
-        print('The number of words in text is:', sum(self.words.values()))
-        print('The number of unique words in text is:', len(self.words.keys()))
-        self.sort_dict()
+        with open('results.txt','w') as f:
+
+            t0 = '''\nHere are the results of the text:\n'''
+            t1=f'The number of paragraphs in text is:  {self.paragraphs}\n'
+            t2=f'The number of sentences in text is:  {self.sentences}\n'
+            t3=f'The number of words in text is:  {sum(self.words.values())}\n'
+            t4=f'The number of unique words in text is:  {len(self.words.keys())}\n'
+            t5 = '----------------------------------------'
+            t6 = '\nHere is the word frequency:\n'
+            f.writelines([t0,t1,t2,t3,t4,t5,t6])
+            for key,value in self.sort_dict().items():
+                    f.writelines(f'{key}:{value}\n')
 
 
     def sort_dict(self):
-        empty_list = []
+        dict_ = {}
         for w in sorted(self.words, key=self.words.get, reverse=True):
             my_item = (w, self.words[w])
-            print(my_item)
-            empty_list.append(my_item)
-        print(empty_list[:10])
+            dict_[w] = self.words[w]
+        return dict_
+        # sorted_dict = sorted(self.words, key=self.words.get, reverse=True)
+        # print(sorted_dict[10])
 
 
 if __name__ == '__main__':
