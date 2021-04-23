@@ -16,7 +16,9 @@ rule_overide = {
 				"won't":"will not",
 				"Won't":"will not",
 				"can't":"can not",
-				"Can't":"can not"
+				"Can't":"can not",
+				"I'm":"I am",
+				"i'm":"I am"
 				}
 
 
@@ -38,7 +40,10 @@ puncuations = [ ':',
 				'>',
 				'-',
 				'/',
-				'\\'
+				'\\',
+				"'",
+				'"',
+				'!'
 
 				]
 				
