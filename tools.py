@@ -1,20 +1,6 @@
-## In order to read only once the file
-## First read it as one and split it in paragraphs
-## For each paragrapgh split in sentenses
-## For each sentence split in words
 
 import settings
 from nltk.tokenize import sent_tokenize
-
-
-# a.Number of paragraphs
-# b.Number of sentences
-# c.Number of words (i.e., "tokens")
-# d.Number of distinct words (i.e., "word types")
-# e.List of word frequency counts.  Words are ordered by frequency (in the descending order), and words which have the same frequency count are ordered by lexicographical order (in the ascending order).
-# f.Remove the stopwords (i.e., words that are frequent but do not contribute much to the meaning of a sentence.)  A list of stopwords is provided for English.
-# g.How would what you did be different if you did it for another language (e.g. Greek or French). List as many changes in your approach as you can. Do you think there can be a universal methodology for identifying and counting words / sentences / paragraphs, or is it language specific?
-
 
 class Counter:
     def __init__(self, file_name):
@@ -25,17 +11,20 @@ class Counter:
         self.file_name = file_name
         self.str_file = open(self.file_name, 'r').read()
 
+
     def paragraph_counter(self):
         pars = [par for par in self.str_file.split('\n') if len(par) > 0]
         for pr in pars:
             self.paragraphs += 1
             self.sentences_counter(pr)
 
+
     def sentences_counter(self, par):
         setences = sent_tokenize(par)
         for sen in setences:
             self.word_counter(sen)
             self.sentences += 1
+
 
     def word_counter(self, sen):
         words = [self.word_replacements(word) for word in sen.split()]
@@ -46,21 +35,6 @@ class Counter:
                     self.punc_replacements(w)
             else:
                 self.punc_replacements(word)
-
-            # print(word)
-
-
-        # words = [self.word_replacements(word) for word in sen.split()]
-        # words = [word.split() for word in words]
-        # words = [self.punc_replacements(word) for word in words]
-        # for word in words:
-            
-        #     if len(word) > 1:
-        #         for w in word:
-        #             self.add_to_dict(w)
-
-        #     else:
-        #         self.add_to_dict(word[0])
 
 
     def word_replacements(self, item):
@@ -97,10 +71,6 @@ class Counter:
                 break
                     
         self.add_to_dict(word)
-        
-
-
-
 
 
     def add_to_dict(self, word):
@@ -110,16 +80,15 @@ class Counter:
             self.words[word] = 1
 
 
-
-
     def results(self):
         print('\n')
         print('--------------------------------------------------')
         print('The number of paragraphs in text is:', self.paragraphs)
         print('The number of sentences in text is:', self.sentences)
         print('The number of words in text is:', sum(self.words.values()))
-        print('The number of unique words in text is:', len(self.words))
+        print('The number of unique words in text is:', len(self.words.keys()))
         self.sort_dict()
+
 
     def sort_dict(self):
         empty_list = []
