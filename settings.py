@@ -1,5 +1,5 @@
 
-filenames={'fname':'sample2.txt',
+filenames={'fname':'sample.txt',
 			'output':'results.txt'}
             
 
