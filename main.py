@@ -16,8 +16,9 @@ def main():
     counter.paragraph_tokenize()
     counter.sentences_tokenize()
     counter.word_tokenize()
-    counter.results()
+    
     counter.drop_stop_words()
+    counter.results()
 
 
 
