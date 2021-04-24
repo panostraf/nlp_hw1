@@ -14,23 +14,23 @@ replacement = {
 
 rule_overide = {
 				"won't":"will not",
-				"Won't":"will not",
+				"Won't":"Will not",
 				"can't":"can not",
-				"Can't":"can not",
+				"Can't":"Can not",
 				"I'm":"I am",
-				"i'm":"I am",
+				"i'm":"i am",
 				"he's":"he is",
 				"she's":"she is",
 				"it's":"it is",
-				"He's":"he is",
-				"She's":"she is",
-				"It's":"it is",
+				"He's":"He is",
+				"She's":"She is",
+				"It's":"It is",
 				"that's":"that is",
 				"here's":"here is",
 				"there's":"there is",
-				"That's":"that is",
-				"Here's":"here is",
-				"There's":"there is",
+				"That's":"That is",
+				"Here's":"Here is",
+				"There's":"There is",
 				}
 
 
@@ -75,7 +75,11 @@ puncuations = [ ':',
 				'`',
 				'§'
 				'±',
-				'€'
+				'€',
+				' '
 
 				]
+
+text = open('stop_words.txt','r')
+stop_words = [word.strip() for word in text]
 				
