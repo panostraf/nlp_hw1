@@ -18,8 +18,6 @@ class Counter:
 
     def word_tokenize(self):
         words = [self.word_replacements(word) for word in self.str_file.split()]
-        # for word in words:
-        #     print(word)
         words = [word.split() for word in words]
         
         for word in words:
@@ -30,50 +28,29 @@ class Counter:
                     print(w)
                     self.add_to_dict(w)
             else:
-                # print(word)
                 self.add_to_dict(word)
 
-#   OLD ONE
-    # def word_replacements(self, item):
-    #     if item.isalnum()==False:
-    #         # print(item)
-    #         for key in settings.rule_overide:
-    #             item = item.replace(key, settings.rule_overide[key])
-    #         for key in settings.replacement:
-    #             item = item.replace(key, settings.replacement[key])
-    #         return item
 
-    #     else:
-    #         return item
-
-# New ONE
     def word_replacements(self, item):
         item = self.punc_replacements(item)
-        # print(item)
         if item.isalnum()==False:
-            # print(item,'has puncuations')
             for key in settings.rule_overide:
                 item = item.replace(key, settings.rule_overide[key])
             for key in settings.replacement:
                 item = item.replace(key, settings.replacement[key])
-            # print('transform item to:',item)
             return item
 
         else:
-            # print('item had not puncuations:',item)
             return item
             
     def punc_replacements(self, word):
 
         while word[0] in settings.puncuations:
             if len(word)>1:
-                # print(word,'--->',word[1:])
                 self.add_to_dict(word[0])
                 word = word[1:]
 
             else:
-                # print(word,' _________ break')
-                # self.add_to_dict(word[0])
                 break
 
         while word[-1:] in settings.puncuations:
@@ -81,13 +58,8 @@ class Counter:
                 self.add_to_dict(word[-1:])
                 word = word[:-1]
             else:
-                # self.add_to_dict(word[-1:])
                 break
 
-        # if len(word) == 1 and (word in settings.puncuations):
-        #     self.add_to_dict(word)   
-
-        # self.add_to_dict(word)
         return word
 
     def add_to_dict(self, word):
@@ -116,11 +88,6 @@ Here is the word frequency:
             f.writelines([text,word_frequency])
 
     def sort_dict(self):
-        # dict_ = {}
-        # for w in sorted(self.words, key=(self.words.get,self.words), reverse=True):
-        #     my_item = (w, self.words[w])
-        #     dict_[w] = self.words[w]
-        # return dict_
         return dict(sorted(self.words.items(), key=lambda x: (-x[1], x[0])))
 
     def drop_stop_words(self):
