@@ -1,7 +1,10 @@
 
 import settings
 from nltk.tokenize import sent_tokenize
+import nltk
+import output
 
+# nltk.download('punkt')
 class Counter:
     def __init__(self, file_name):
         # Initialize global variables 
@@ -36,6 +39,8 @@ class Counter:
                     self.add_to_dict(w)
             else:
                 self.add_to_dict(word)
+
+        
 
 
     def word_replacements(self, item):
@@ -113,9 +118,9 @@ class Counter:
         for word in stop_words:
             try:
                 self.words_rs.pop(word)
-                print(word,'removed')
+                # print(word,'removed')
             except KeyError:
-                print('key error')
+                # print('key error')
                 pass
 
         print('final length: ',len(self.words_rs))
@@ -128,45 +133,25 @@ class Counter:
         # paragraphs, sentenses, words, and word frequency on the input document
         #
         # The second one provides the same information for but with stop words removed
+        output1 = output.Output(
+                    self.paragraph_tokenize(),
+                    self.sentences_tokenize(),
+                    self.sort_dict(),
+                    settings.filenames['output'])
+        output1.result_full_text()
 
-        with open(settings.filenames['output'],'w') as f:
-            
-            text = f'''
-Here are the results of the text:
-Number of paragraphs:  {self.paragraph_tokenize()}\n
-Number of sentences:  {self.sentences_tokenize()}\n
-Number of words:  {sum(self.words.values())}\n
-Number of unique words:  {len(self.words.keys())}\n
-----------------------------------------
-Here is the word frequency:
-'''
-            word_frequency = '\n'
-
-            for key,value in self.sort_dict().items():
-                word_frequency = word_frequency + f'{key} - {value}\n'
-
-            f.writelines([text,word_frequency])
-        f.close()
+        self.drop_stop_words()
 
 
-        with open(settings.filenames['output_2'],'w') as f2:
-            text = f"""
-Here are the results after stop words removal:
-
-Number of paragraphs:  {self.paragraph_tokenize()}\n
-Number of sentences:  {self.sentences_tokenize()}\n
-Number of words:  {sum(self.words_rs.values())}\n
-Number of unique words:  {len(self.words_rs.keys())}\n
-----------------------------------------
-Here is the word frequency:
-"""
-            word_frequency2 = '\n'
-
-            for key,value in self.sort_dict_stop().items():
-                word_frequency2 = word_frequency2 + f'{key} - {value}\n'
-
-            f2.writelines([text,word_frequency])
-        f2.close()
+        output2 = output.Output(
+                    self.paragraph_tokenize(),
+                    self.sentences_tokenize(),
+                    self.sort_dict_stop(),
+                    settings.filenames['output_2'])
+        
+        
+        output2.result_full_text()
+        # output2.result_rm_stopw()
 
 
 

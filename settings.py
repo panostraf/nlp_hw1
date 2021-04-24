@@ -5,6 +5,7 @@
 # and the name of the stopwords file (stop_words)
 
 # Please only change the values and not the keys of the dict
+# And only the names after "/" as prion to slash it refers to folder name
 # As it may break the code
 filenames={'fname':'inputs/sample.txt',
 			'output':'results/results.txt',
