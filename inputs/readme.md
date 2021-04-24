@@ -1,0 +1,1 @@
+In this folder add the text file and the stop_words file
