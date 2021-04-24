@@ -11,12 +11,9 @@ import settings
 # Containing the same information but by removing stop words
 # (aka words that does not give much meaning to the text)
 
-# TODO: 
-# Word Cloud
+# TODO:
 # Readme File
 # Report
-# move results and word cloud to output.py
-# Add comments to the code
 
 
 def main():
