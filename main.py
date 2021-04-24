@@ -10,9 +10,6 @@ import settings
 # Add comments to the code
 
 
-
-
-
 def main():
     fname = settings.filenames['fname']
     counter = tools.Counter(fname)
@@ -20,7 +17,7 @@ def main():
     counter.sentences_tokenize()
     counter.word_tokenize()
     counter.results()
-    # counter.drop_stop_words()
+    counter.drop_stop_words()
 
 
 

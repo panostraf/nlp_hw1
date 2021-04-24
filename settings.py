@@ -1,6 +1,10 @@
 
 filenames={'fname':'sample.txt',
-			'output':'results.txt'}
+			'output':'results.txt',
+			'stop_words':'stop_words.txt'}
+
+text = open('stop_words.txt','r')
+stop_words = [word.strip() for word in text]
             
 
 replacement = {
@@ -36,50 +40,17 @@ rule_overide = {
 
 
 puncuations = [ ':',
-				'(',
-				')',
-				'*',
-				'?',
-				'.',
-				',',
-				'%',
-				'^',
-				'&',
-				'@',
-				'[',
-				']',
-				'<',
-				'>',
-				'-',
-				'/',
-				'\\',
-				"'",
-				'"',
-				'!',
-				"#",
-				'$',
-				'+',
-				';',
-				'<',
-				'>',
-				'=',
-				'@',
-				'[',
-				']',
-				'_',
-				'|',
-				'{',
-				'}',
-				'~',
-				'΄',
-				'`',
-				'§'
-				'±',
-				'€',
-				' '
+'(', ')', '*', '?',
+'.', ',', '%', '^',
+'&', '@', '[', ']',
+'<', '>', '-', '/',
+'\\', "'", '"', '!',
+"#", '$', '+', ';',
+'<', '>', '=', '@',
+'[', ']', '_', '|',
+'{', '}', '~', '΄',
+'`', '§', '±', '€',
+' ']
 
-				]
 
-text = open('stop_words.txt','r')
-stop_words = [word.strip() for word in text]
 				

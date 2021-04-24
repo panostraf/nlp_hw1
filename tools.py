@@ -23,9 +23,7 @@ class Counter:
         for word in words:
             
             if isinstance(word, list):
-                print('True')
                 for w in word:
-                    print(w)
                     self.add_to_dict(w)
             else:
                 self.add_to_dict(word)
@@ -42,6 +40,7 @@ class Counter:
 
         else:
             return item
+
             
     def punc_replacements(self, word):
 
@@ -62,11 +61,30 @@ class Counter:
 
         return word
 
+
     def add_to_dict(self, word):
         if word in self.words.keys():
             self.words[word] += 1
         else:
             self.words[word] = 1
+
+    
+
+    def sort_dict(self):
+        return dict(sorted(self.words.items(), key=lambda x: (-x[1], x[0])))
+
+
+    def drop_stop_words(self):
+        stop_words = settings.stop_words
+        print(stop_words)
+        print('starting length:',len(self.words))
+        for word in stop_words:
+            try:
+                self.words.pop(word)
+            except KeyError:
+                pass
+        print('final length: ',len(self.words))
+
 
     def results(self):
         with open('results.txt','w') as f:
@@ -86,18 +104,4 @@ Here is the word frequency:
                 word_frequency = word_frequency + f'{key} - {value}\n'
 
             f.writelines([text,word_frequency])
-
-    def sort_dict(self):
-        return dict(sorted(self.words.items(), key=lambda x: (-x[1], x[0])))
-
-    def drop_stop_words(self):
-        stop_words = settings.stop_words
-        print(stop_words)
-        print(len(self.words))
-        for word in stop_words:
-            try:
-                self.words.pop(word)
-            except KeyError:
-                pass
-        print(len(self.words))
 
