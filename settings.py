@@ -77,4 +77,3 @@ puncuations = [ ':',
 # can be specified at the top of the file in filenames dict
 text = open(filenames['stop_words'],'r')
 stop_words = [word.strip() for word in text]
-				
