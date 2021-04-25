@@ -3,6 +3,7 @@ import tools
 from wordcloud import WordCloud, STOPWORDS
 # import matplotlib.pyplot as plt
 import matplotlib.pyplot as plt
+# import settings
 
 class Output(object):
 
@@ -13,6 +14,20 @@ class Output(object):
         self.output_name = output_name
 
         print('Check folder for results')
+
+
+
+# By running the file:
+# If the dependences are in the right place
+# it will read the desired text and it will 
+# output the number of paragraphs, sentences words,
+# and the frequency of the words it has found.
+
+# Also it will create a second output file
+# Containing the same information but by removing stop words
+# (aka words that does not give much meaning to the text)
+
+# TODO:
 
 
     def result_full_text(self):
