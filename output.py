@@ -1,3 +1,11 @@
+# --------------------------------------
+# Author Trafalis Panagiotis
+# Course : NLP
+# HW#1
+# ACG Ms DataScience
+# --------------------------------------
+
+
 import settings
 import tools
 from wordcloud import WordCloud, STOPWORDS
@@ -13,7 +21,7 @@ class Output(object):
         self.word_dict = word_dict
         self.output_name = output_name
 
-        print('Check folder for results')
+        print('\n\nCheck directory results to see information about the text...')
 
 
 

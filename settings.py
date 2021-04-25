@@ -1,3 +1,9 @@
+# --------------------------------------
+# Author Trafalis Panagiotis
+# Course : NLP
+# HW#1
+# ACG Ms DataScience
+# --------------------------------------
 
 # By changing the values of this dict 
 # you can specify which file the algorithm will read (fname)

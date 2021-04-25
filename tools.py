@@ -1,4 +1,10 @@
 
+# --------------------------------------
+# Author Trafalis Panagiotis
+# Course : NLP
+# HW#1
+# ACG Ms DataScience
+# --------------------------------------
 import settings
 from nltk.tokenize import sent_tokenize
 import nltk
@@ -113,17 +119,13 @@ class Counter:
         # Copy the dictionary words to dictionary words_rs
         # remove the stopword if exists in dictionary words_rs
         stop_words = settings.stop_words
-        print('starting length:',len(self.words_rs))
         self.words_rs = self.words.copy()
         for word in stop_words:
             try:
                 self.words_rs.pop(word)
-                # print(word,'removed')
             except KeyError:
-                # print('key error')
                 pass
 
-        print('final length: ',len(self.words_rs))
 
 
 
