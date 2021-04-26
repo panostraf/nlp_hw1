@@ -66,5 +66,5 @@ Here is a word frequency {str(len(self.word_dict))}
         plt.axis("off")
         plt.tight_layout(pad = 0)
         plt.savefig(self.output_name.replace('.txt','.png'))
-        plt.show()
+        # plt.show()
 

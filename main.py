@@ -19,10 +19,6 @@ import settings
 # Containing the same information but by removing stop words
 # (aka words that does not give much meaning to the text)
 
-# TODO:
-# Readme File
-# Report
-
 
 def main():
     fname = settings.filenames['fname']

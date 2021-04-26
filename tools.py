@@ -10,7 +10,11 @@ from nltk.tokenize import sent_tokenize
 import nltk
 import output
 
+
+# Uncomment the next line of code if you are running this code for the first time
 # nltk.download('punkt')
+
+
 class Counter:
     def __init__(self, file_name):
         # Initialize global variables 
@@ -153,7 +157,6 @@ class Counter:
         
         
         output2.result_full_text()
-        # output2.result_rm_stopw()
 
 
 
