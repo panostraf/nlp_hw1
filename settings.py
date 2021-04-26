@@ -15,7 +15,7 @@
 # As it may break the code
 filenames={'fname':'inputs/sample.txt',
 			'output':'results/results.txt',
-			'output_2':'results/results2.txt',
+			'output_2':'results/results_with_stop_words_removed.txt',
 			'stop_words':'inputs/stop_words.txt'}
 
 
